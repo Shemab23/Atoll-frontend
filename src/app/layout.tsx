@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { AppProvider } from "@/context/AppProvider";
-// import { ThemeProvider } from "@/providers/ThemeProvider";
-// import { QueryProvider } from "@/providers/QueryProvider";
-// import { AppProvider } from "@/context/AppProvider";
+import { AppProvider } from "@/context/Global/AppProvider";
+import { SessionProvider } from "@/context/Session/SessionProvider";
+import { ThemeToggle } from "@/components/feature/toggleTheme";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,6 +14,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Atoll",
   description: "Minimalist community discussions",
+  icons: {
+    icon: "/logo/Atoll.svg",
+  },
 };
 
 export default function RootLayout({
@@ -25,12 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-screen w-full bg-bg text-text antialiased selection:bg-brand/20 selection:text-text">
-        {/* Uncomment providers once created */}
-        {/* <ThemeProvider> */}
-        {/* <QueryProvider> */}
-        <AppProvider>{children}</AppProvider>
-        {/* </QueryProvider> */}
-        {/* </ThemeProvider> */}
+        <ThemeToggle />
+        <SessionProvider>
+          <AppProvider>{children}</AppProvider>
+        </SessionProvider>
       </body>
     </html>
   );

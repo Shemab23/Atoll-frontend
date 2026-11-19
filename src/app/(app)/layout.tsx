@@ -2,12 +2,13 @@
 // import { AppSidebar } from "@/components/layout/AppSidebar";
 // import { MobileNavigation } from "@/components/layout/MobileNavigation";
 
-import { AppProvider } from "@/context/AppProvider";
+import { ThemeToggle } from "@/components/feature/toggleTheme";
+import { AppProvider } from "@/context/Global/AppProvider";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen w-full bg-bg text-text flex flex-col">
-      {/* Full-width top bar border, constrained inner content */}
+      <ThemeToggle />
       <header className="sticky top-0 z-40 w-full border-b bg-bg/95 backdrop-blur">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* <AppHeader /> */} App header

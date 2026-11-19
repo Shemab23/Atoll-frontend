@@ -1,4 +1,6 @@
-import { AppProvider } from "@/context/AppProvider";
+import { ThemeToggle } from "@/components/feature/toggleTheme";
+import { Toaster } from "sonner";
+import { AppProvider } from "@/context/Global/AppProvider";
 
 export default function AuthLayout({
   children,
@@ -6,9 +8,13 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen w-full bg-bg text-text flex flex-col items-center justify-center px-4 py-12 sm:px-6">
-      <div className="w-full max-w-md">
-        <AppProvider>{children}</AppProvider>
+    <div className="h-screen w-screen">
+      <ThemeToggle />
+      <div className="w-full">
+        <AppProvider>
+          {children}
+          <Toaster richColors position="top-right" />
+        </AppProvider>
       </div>
     </div>
   );

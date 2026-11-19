@@ -1,12 +1,10 @@
-// import { AppHeader } from "@/components/layout/AppHeader";
-// import { AppSidebar } from "@/components/layout/AppSidebar";
-// import { MobileNavigation } from "@/components/layout/MobileNavigation";
-
-import { AppProvider } from "@/context/AppProvider";
+import { ThemeToggle } from "@/components/feature/toggleTheme";
+import { AppProvider } from "@/context/Global/AppProvider";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen w-full bg-bg text-text flex flex-col">
+      <ThemeToggle />
       <header className="flex sticky top-0 z-40 w-full border-b h-15 items-center justify-center md:px-4">
         App header
       </header>
